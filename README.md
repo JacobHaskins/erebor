@@ -16,6 +16,8 @@ A repo for experimentation.
 - flesh-out main.yml build pipeline script and add HEROKU_API_KEY and HEROKU_APP_
 NAME to the GitHub repo secrets for connecting to Heroku
 - add jest-axe to do an accessibility unit test
+- npm install cypress --save-dev
+- npx cypress open
 
 Following text was auto-generated with create-react-app:
 

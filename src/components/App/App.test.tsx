@@ -5,11 +5,15 @@ import { axe, toHaveNoViolations } from "jest-axe";
 
 expect.extend(toHaveNoViolations);
 
+// unit tests
+
 test('renders learn react link', () => {
   render(<App />);
   const linkElement = screen.getByText(/learn react/i);
   expect(linkElement).toBeInTheDocument();
 });
+
+//a11y tests
 
 test("should not have any accessibility violations", async () => {
   const { container } = render(<App />);
