@@ -36,10 +36,10 @@ jobs:
         CI: true
 
     - name: Run integrations tests with Cypress
-        uses: cypress-io/github-action@v2
-        with:
-          build: npm run build
-          start: npm start
+      uses: cypress-io/github-action@v2
+      with:
+        build: npm run build
+        start: npm start
 
     - name: Add remote origin
       run: |
