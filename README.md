@@ -1,3 +1,23 @@
+# erebor
+
+A repo for experimentation.
+
+# notes
+
+- Scaffold made with create-reacte-app> npx create-react-app erebor --template typescript
+- Machine running:
+- - git version 2.35.0.windows.1
+- - npm v8.1.2
+- - NodeJS v16.13.2
+- - Heroku CLI tools: heroku/7.53.0 win32-x86 node-v12.21.0
+- Setup Heroku: heroku create erebor-experiment --buildpack mars/create-react-app
+- https://erebor-experiment.herokuapp.com/ | https://git.heroku.com/erebor-experiment.git
+- git push heroku main
+- flesh-out main.yml build pipeline script and add HEROKU_API_KEY and HEROKU_APP_
+NAME to the GitHub repo secrets for connecting to Heroku
+
+Following text was auto-generated with create-react-app:
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
