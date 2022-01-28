@@ -15,6 +15,7 @@ A repo for experimentation.
 - git push heroku main
 - flesh-out main.yml build pipeline script and add HEROKU_API_KEY and HEROKU_APP_
 NAME to the GitHub repo secrets for connecting to Heroku
+- add jest-axe to do an accessibility unit test
 
 Following text was auto-generated with create-react-app:
 
