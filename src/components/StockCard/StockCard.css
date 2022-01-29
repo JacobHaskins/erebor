@@ -1,0 +1,18 @@
+.stock-card {
+  text-align: center;
+  border: 2px solid var(--color-burgundy);
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  background-color: white;
+  margin: 3px;
+  width: 32%;
+  min-width: 230px;
+  padding: 2px;
+  flex-grow: 1;
+}
+
+.grey-text {
+  color: gray;
+  font-size: 0.8em;
+}

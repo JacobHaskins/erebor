@@ -1,5 +1,6 @@
 import React from 'react';
 import SearchBar from '../SearchBar/SearchBar';
+import StockBoard from '../StockBoard/StockBoard'
 import './App.css';
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
       </header>
       <main>
         <SearchBar />
+        <StockBoard />
       </main>
     </div>
   );

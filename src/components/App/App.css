@@ -5,6 +5,9 @@
   width: 80%;
   padding: 10px;
   background: rgba(255, 155, 35, 0.8);
+}
+
+main, .app {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -20,4 +23,12 @@ h1 {
 .app, header, main {
   margin-left: auto;
   margin-right: auto;
+}
+
+header {
+  flex-grow: 1;
+}
+
+main {
+  flex-grow: 100;
 }
