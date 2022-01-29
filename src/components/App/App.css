@@ -3,8 +3,6 @@
   min-height: 100vh;
   max-width: 1400px;
   width: 80%;
-  margin-left: auto;
-  margin-right: auto;
   padding: 10px;
   background: rgba(255, 155, 35, 0.8);
   display: flex;
@@ -18,6 +16,9 @@ h1 {
   font-weight: bold;
   font-size: calc(32px + 2vmin);
   font-family: 'Lobster', 'Helvetica', sans-serif;
+}
+
+.App, header {
   margin-left: auto;
   margin-right: auto;
 }

@@ -7,7 +7,7 @@ expect.extend(toHaveNoViolations);
 
 // unit tests
 
-test('renders learn react link', () => {
+test('should render header text', () => {
   render(<App />);
   const headerElement = screen.getByText(/Investment Comparator/i);
   expect(headerElement).toBeInTheDocument();
