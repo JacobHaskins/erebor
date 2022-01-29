@@ -1,14 +1,18 @@
 import React from 'react';
+import SearchBar from '../SearchBar/SearchBar';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
+    <div className="app">
       <header>
         <h1>
-          Investment Comparator
+          Stock Comparison
         </h1>
       </header>
+      <main>
+        <SearchBar />
+      </main>
     </div>
   );
 }

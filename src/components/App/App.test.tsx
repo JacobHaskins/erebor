@@ -9,7 +9,7 @@ expect.extend(toHaveNoViolations);
 
 test('should render header text', () => {
   render(<App />);
-  const headerElement = screen.getByText(/Investment Comparator/i);
+  const headerElement = screen.getByText(/Stock Comparison/i);
   expect(headerElement).toBeInTheDocument();
 });
 
