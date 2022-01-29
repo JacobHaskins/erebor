@@ -1,0 +1,27 @@
+.search-fieldset {
+  text-align: center;
+  border: 2px dotted var(--color-burgundy);
+
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+}
+
+legend {
+  font-size: 1em;
+}
+
+label {
+  font-weight: bold;
+  line-height: 2em;
+}
+
+#search-bar {
+  width: 100%;
+  min-width: 80px;
+  font-size: 16px;
+  font-size: max(16px, 1em);
+  padding: 0.25em 0.5em;
+  border: 2px solid var(--color-burgundy);
+  border-radius: 4px;
+}
