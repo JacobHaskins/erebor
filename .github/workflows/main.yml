@@ -49,5 +49,5 @@ jobs:
       run: |
         git push heroku HEAD:main -f
 
-    - name: SUCCESS!
-      run: echo Please visit https://erebor-experiment.herokuapp.com/
+    - name: SUCCESS!!
+      run: echo Installed, built, tested, and deployed to Heroku.

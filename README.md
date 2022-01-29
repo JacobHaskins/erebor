@@ -18,6 +18,7 @@ NAME to the GitHub repo secrets for connecting to Heroku
 - add jest-axe to do an accessibility unit test
 - npm install cypress --save-dev
 - npx cypress open
+- build status: ![](https://github.com/JacobHaskins/erebor/workflows/erebor-CICD/badge.svg)
 
 Following text was auto-generated with create-react-app:
 
