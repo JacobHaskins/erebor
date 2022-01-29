@@ -9,8 +9,8 @@ expect.extend(toHaveNoViolations);
 
 test('renders learn react link', () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  const headerElement = screen.getByText(/Investment Comparator/i);
+  expect(headerElement).toBeInTheDocument();
 });
 
 //a11y tests
