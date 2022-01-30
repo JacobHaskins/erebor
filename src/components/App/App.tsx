@@ -1,21 +1,24 @@
 import React from 'react';
+import { StockProvider } from '../../business-logic/StockProvider/StockProvider';
 import SearchBar from '../SearchBar/SearchBar';
-import StockBoard from '../StockBoard/StockBoard'
+import StockBoard from '../StockBoard/StockBoard';
 import './App.css';
 
 function App() {
   return (
-    <div className="app">
-      <header>
-        <h1>
-          Stock Comparison
-        </h1>
-      </header>
-      <main>
-        <SearchBar />
-        <StockBoard />
-      </main>
-    </div>
+    <StockProvider>
+      <div className="app">
+        <header>
+          <h1>
+            Stock Comparison
+          </h1>
+        </header>
+        <main>
+          <SearchBar />
+          <StockBoard />
+        </main>
+      </div>
+    s</StockProvider>
   );
 }
 
