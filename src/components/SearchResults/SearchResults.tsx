@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './SearchResults.css';
 
 interface ISearchResultsProps {
@@ -12,7 +12,7 @@ function SearchResults({ results, clearCallback }: ISearchResultsProps) {
   }
 
   const triggerCardPin = (symbol: string): void => {
-    // TODO: trigger card pining to board
+    console.log(symbol);// TODO: trigger card pining to board
     clearCallback();
   };
 
