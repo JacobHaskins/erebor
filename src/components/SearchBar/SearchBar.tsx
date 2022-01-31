@@ -20,21 +20,17 @@ function SearchBar() {
   }
 
   const modifyResults = (newResults: string[]): void => {
-    setResults(newResults);
+    if(typeof setResults != 'undefined') {
+      setResults(newResults);
+    }
   };
 
   useEffect(() => {
-    let isMounted = true;
-
     if (searchTerm.trim() === '') {
       setResults([]);
     } else {
       searchForSymbol(searchTerm.trim(), modifyResults);
     }
-
-    return () => {
-      isMounted = false;
-    };
   }, [searchTerm]);
 
   return (

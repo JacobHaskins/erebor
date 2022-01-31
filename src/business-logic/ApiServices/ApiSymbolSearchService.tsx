@@ -45,6 +45,6 @@ export const searchForSymbol = (keyword: string, resultsCallback: (results: stri
       }
     })
     .catch((rawError) => {
-        throw new Error(`Cannot load trivia questions: ${rawError}`);
+        throw new Error(`Cannot load search results: ${rawError}`);
       });
 };
