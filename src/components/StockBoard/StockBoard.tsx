@@ -8,9 +8,9 @@ function StockBoard() {
 
   return (
     <div className="stock-board">  
-      <StockCard title={ boardState[0] } />
-      <StockCard title={ boardState[1] } />
-      <StockCard title={ boardState[2] } />
+      <StockCard title={ boardState.card0 } />
+      <StockCard title={ boardState.card1 } />
+      <StockCard title={ boardState.card2 } />
     </div>
   );
 }

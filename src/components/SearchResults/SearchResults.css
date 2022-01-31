@@ -1,0 +1,14 @@
+#results {
+  width: 100%;
+  min-width: 80px;
+  background-color: white;
+}
+
+.result-button {
+  border: 0;
+  background-color: inherit;
+  cursor: pointer;
+  width: 100%;
+  font-size: 16px;
+  font-size: max(16px, 1em);
+}

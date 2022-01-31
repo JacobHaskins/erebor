@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, ReactNode } from 'react';
-import { IBoard, Board, board } from '../../services/Board';
+import { IBoard, Board, board } from '../../models/Board';
 
 interface IStockContext {
   boardState: IBoard;
@@ -20,7 +20,7 @@ export type Props = {
 export const StockProvider = (props: Props) => {
   const { children } = props;
 
-  const [boardState] = useState(board);
+  const [ boardState ] = useState(board);
 
   return (
     <StockContext.Provider value={{ boardState }}>
