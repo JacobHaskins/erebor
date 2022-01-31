@@ -1,18 +1,21 @@
 import React from 'react';
+import { useStockContext } from '../../business-logic/StockProvider/StockProvider';
 import './SearchResults.css';
 
 interface ISearchResultsProps {
-  results: string[],
-  clearCallback: () => void
+  results: string[];
+  clearCallback: () => void;
 }
 
 function SearchResults({ results, clearCallback }: ISearchResultsProps) {
+  const { pinCardToBoard } = useStockContext();
+
   if (results.length === 0) {
     return null;
   }
 
   const triggerCardPin = (symbol: string): void => {
-    console.log(symbol);// TODO: trigger card pining to board
+    pinCardToBoard(symbol);
     clearCallback();
   };
 

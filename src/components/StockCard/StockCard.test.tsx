@@ -8,7 +8,7 @@ expect.extend(toHaveNoViolations);
 // unit tests
 
 test('should render the gray hint text', () => {
-  render(<StockCard title='Oakenshield Company'/>);
+  render(<StockCard symbol='' cardId='card0' />);
   const hintElement = screen.getByText(/Pick an additional/i);
   expect(hintElement).toBeInTheDocument();
 });
@@ -16,7 +16,7 @@ test('should render the gray hint text', () => {
 //a11y tests
 
 test("should not have any accessibility violations", async () => {
-  const { container } = render(<StockCard title='Oakenshield Company' />);
+  const { container } = render(<StockCard symbol='' cardId='card0' />);
   const results = await axe(container);
   expect(results).toHaveNoViolations();
 })

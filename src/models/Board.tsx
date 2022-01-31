@@ -1,13 +1,17 @@
 export interface IBoard {
-    card0: string,
-    card1: string,
-    card2: string,
+    card0: string;
+    card1: string;
+    card2: string;
 }
 
 export class Board {
-    card0 = 'IBM';
-    card1 = 'AGNC';
-    card2 = 'PLTR';
-}
+    card0 = '';
+    card1 = '';
+    card2 = '';
 
-export const board: IBoard = new Board();
+    constructor(card0 = '', card1 = '', card2 = '') {
+        this.card0 = card0;
+        this.card1 = card1;
+        this.card2 = card2;
+    }
+}

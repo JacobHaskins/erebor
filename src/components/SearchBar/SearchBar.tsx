@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import SearchResults from '../SearchResults/SearchResults';
-import { searchForSymbol } from '../../business-logic/ApiServices/ApiSymbolSearchService';
+import { searchForKeyword } from '../../business-logic/ApiServices/ApiKeywordSearchService';
 import './SearchBar.css';
 
 function SearchBar() {
@@ -26,10 +26,10 @@ function SearchBar() {
   };
 
   useEffect(() => {
-    if (searchTerm.trim() === '') {
+    if (!searchTerm.trim()) {
       setResults([]);
     } else {
-      searchForSymbol(searchTerm.trim(), modifyResults);
+      searchForKeyword(searchTerm.trim(), modifyResults);
     }
   }, [searchTerm]);
 
