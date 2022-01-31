@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useStockContext } from '../../business-logic/StockProvider/StockProvider';
 import './StockCard.css';
+import './glyphicon.css';
 
 interface IStockCardProps {
   symbol: string;
@@ -67,6 +68,8 @@ function StockCard({ symbol, cardId }: IStockCardProps) {
         X
       </button>
       <h2>{ cardData.name }</h2>
+      <span className="glyphicon glyphicon-arrow-up"></span>
+      <span className="glyphicon glyphicon-arrow-down"></span>
     </section>
   );
 }
