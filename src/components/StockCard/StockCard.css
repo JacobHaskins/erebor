@@ -1,4 +1,4 @@
-.stock-card {
+.stock-card, .stock-card-empty {
   text-align: center;
   border: 2px solid var(--color-burgundy);
   -webkit-border-radius: 8px;
@@ -12,7 +12,20 @@
   flex-grow: 1;
 }
 
+.stock-card-empty {
+  background-color: rgba(41, 143, 202, 0);
+}
+
 .grey-text {
-  color: gray;
+  color: #111111;
   font-size: 0.8em;
+}
+
+.remove-button {
+  color: white;
+  background-color: red;
+  border: 2px solid var(--color-burgundy);
+  float: right;
+  border-radius: 4px;
+  padding: 4px;
 }

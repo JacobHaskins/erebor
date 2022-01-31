@@ -48,7 +48,7 @@ function StockCard({ symbol, cardId }: IStockCardProps) {
 
   if (!symbol || !symbol.trim()) {
     return (
-      <section className="stock-card">
+      <section className="stock-card-empty">
         <p className="grey-text">
           Pick an additional stock symbol in the search box above to display stock information
         </p>
@@ -58,14 +58,15 @@ function StockCard({ symbol, cardId }: IStockCardProps) {
 
   return (
     <section className="stock-card">
-      <h2>{ cardData.name }</h2>
       <button
         className='remove-button'
         onClick={ handleClick }
         onKeyDown={ handleKeyDown }
+        aria-label="Remove"
       >
-        Remove
+        X
       </button>
+      <h2>{ cardData.name }</h2>
     </section>
   );
 }

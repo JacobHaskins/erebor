@@ -17,10 +17,16 @@ interface IKeywordSearchResponse {
 const sanitizeKeywordSearchApiData = (bestMatches: Array<IKeywordSearchResponse>): string[] => {
     let results: string[] = [];
 
+    const MAX_NAME_LENGTH = 45;
     results = bestMatches.map(
-      (currMatch: IKeywordSearchResponse) => (
-        `${currMatch['1. symbol']}; ${currMatch['2. name']}`
-      )
+      (currMatch: IKeywordSearchResponse) => {
+        let rawResult = `${ currMatch['1. symbol'] }; ${ currMatch['2. name'] }`; 
+        rawResult = rawResult.length <= MAX_NAME_LENGTH 
+          ? rawResult 
+          : `${rawResult.substring(0, MAX_NAME_LENGTH - 1)}...`;
+
+        return rawResult;
+      }
     );
 
     return results;
