@@ -18,11 +18,16 @@ label {
 }
 
 #search-bar {
-  width: 100%;
-  min-width: 80px;
+  width: 240px;
   font-size: 16px;
   font-size: max(16px, 1em);
   padding: 0.25em 0.5em;
   border: 2px solid var(--color-burgundy);
   border-radius: 4px;
+}
+
+@media only screen and (min-width: 600px) {
+  #search-bar {
+    width: 400px;
+  }
 }
