@@ -10,6 +10,11 @@
   min-width: 230px;
   padding: 2px;
   flex-grow: 1;
+
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .stock-card-empty {
@@ -21,11 +26,58 @@
   font-size: 0.8em;
 }
 
+h2 {
+  margin-top: 2px;
+  margin-left: 1px;
+}
+
 .remove-button {
   color: white;
   background-color: red;
   border: 2px solid var(--color-burgundy);
-  float: right;
+  width: 25px;
   border-radius: 4px;
   padding: 4px;
+  float: left;
+}
+
+.stats-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: left;
+  width: 100%;
+  color: #111111;
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-bottom: 10px;
+}
+
+.stats-row-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: stretch;
+  justify-content: space-between;
+  align-content: stretch;
+  width: 100%;
+}
+
+.stock-price {
+  font-size: 28px;
+  font-size: max(24px, 1em);
+}
+
+.stock-currency {
+  font-size: 20px;
+  font-size: max(18px, 1em);
+}
+
+.up {
+  color: green;
+}
+
+.down {
+  color: red;
 }

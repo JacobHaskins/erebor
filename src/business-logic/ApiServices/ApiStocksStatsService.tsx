@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { ICard, Card } from '../../models/Card';
 
 const ALPHAVANTAGE_API_KEY = 'XG02D1R55HHOXFYS';
 
@@ -64,39 +65,7 @@ interface IStockQuoteData {
   "10. change percent": string;
 }
 
-export interface IStockCardData {
-  "Symbol": string;
-  "Name": string;
-  "EBITDA": string;
-  "PERatio": string;
-  "PEGRatio": string;
-  "BookValue": string;
-  "DividendPerShare": string;
-  "DividendYield": string;
-  "EPS": string;
-  "High52Week": string;
-  "Low52Week": string;
-  "Price": string;
-  "ChangePercent": string;
-}
-
-export class StockStatsData {
-  Symbol = '';
-  Name = '';
-  EBITDA = '';
-  PERatio = '';
-  PEGRatio = '';
-  BookValue = '';
-  DividendPerShare = '';
-  DividendYield = '';
-  EPS = '';
-  High52Week = '';
-  Low52Week = '';
-  Price = '';
-  ChangePercent = '';
-}
-
-const sanitizeStockOverviewApiData = (partialStockStats: IStockCardData, overviewData: IOverviewResponse): IStockCardData => {
+const sanitizeStockOverviewApiData = (partialStockStats: ICard, overviewData: IOverviewResponse): ICard => {
   partialStockStats.Symbol = overviewData.Symbol || '';
   partialStockStats.Name = overviewData.Name || '';
   partialStockStats.EBITDA = overviewData.EBITDA || '';
@@ -108,11 +77,12 @@ const sanitizeStockOverviewApiData = (partialStockStats: IStockCardData, overvie
   partialStockStats.EPS = overviewData.EPS || '';
   partialStockStats.High52Week = overviewData['52WeekHigh'] || '';
   partialStockStats.Low52Week = overviewData['52WeekLow'] || '';
+  partialStockStats.Currency = overviewData.Currency || '';
 
   return partialStockStats;
 };
 
-const sanitizeStockQuoteApiData = (partialStockStats: IStockCardData, quoteData: IStockQuoteData): IStockCardData => {
+const sanitizeStockQuoteApiData = (partialStockStats: ICard, quoteData: IStockQuoteData): ICard => {
   partialStockStats.Price = quoteData['05. price'] || '';
   partialStockStats.ChangePercent = quoteData['10. change percent'] || '';
 
@@ -127,13 +97,13 @@ const getStockQuoteUrl = (symbol: string): string => {
   return `https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${symbol}&apikey=${ALPHAVANTAGE_API_KEY}`;
 };
 
-export const getStockDataForSymbol = (symbol: string, resultsCallback: (results: IStockCardData) => void): void => {
+export const getStockDataForSymbol = (symbol: string, resultsCallback: (results: ICard) => void): void => {
   axios.get(getStockOverviewUrl(symbol))
   .then((res) => {
     if (res
       && res.data
       && res.data.Symbol) {
-        return sanitizeStockOverviewApiData(new StockStatsData(), res.data);
+        return sanitizeStockOverviewApiData(new Card(), res.data);
     }
 
     throw new Error(`Stock overview API response is in an unexpected format.  Details: ${res.data.Note}`);
@@ -149,6 +119,9 @@ export const getStockDataForSymbol = (symbol: string, resultsCallback: (results:
         throw new Error(`Stock quote API response is in an unexpected format.  Details: ${res.data.Note}`);
       }
     })
+    .catch((rawError) => {
+      alert(`Cannot load search results: ${rawError}`); // IDEA: do something better than an alert with the errors
+    });
   })
   .catch((rawError) => {
     alert(`Cannot load search results: ${rawError}`); // IDEA: do something better than an alert with the errors

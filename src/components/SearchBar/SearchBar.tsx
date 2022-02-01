@@ -20,7 +20,6 @@ function SearchBar() {
   };
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    console.log('setting searchTerm', searchTerm);
     setSearchTerm(event.target.value);
   }
 
@@ -34,18 +33,15 @@ function SearchBar() {
     if (!searchTerm.trim()) {
       setResults([]);
     } else {
-      console.log('new search term', searchTerm);
       if (queryTimeoutHandle != defaultTimerHandle) {
-        console.log('clearing');
         clearTimeout(queryTimeoutHandle);
       }
       const doSearch = (): void => {
-        console.log('doing search');
         searchForKeyword(searchTerm.trim(), modifyResults);
         clearTimeout(queryTimeoutHandle);
         setQueryTimeoutHandle(defaultTimerHandle);
       };
-      setQueryTimeoutHandle(setTimeout(doSearch, 1250)); // NOTE: Because of API Throttling, only query the API if it has been 1.25 seconds or more since the last keydown.
+      setQueryTimeoutHandle(setTimeout(doSearch, 1025)); // NOTE: Because of API Throttling, only query the API if it has been about 1 second or more since the last keydown.
     }
   }, [searchTerm]);
 
