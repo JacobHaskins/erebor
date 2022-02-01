@@ -1,4 +1,3 @@
-
 export interface ICard {
   "Symbol": string;
   "Name": string;

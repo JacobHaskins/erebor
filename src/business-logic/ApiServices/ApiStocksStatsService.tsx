@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { ICard, Card } from '../../models/Card';
-
-const ALPHAVANTAGE_API_KEY = 'XG02D1R55HHOXFYS';
+import ALPHAVANTAGE_API_KEY from '../../settings/prod'; 
 
 interface IOverviewResponse {
   "Symbol": string;

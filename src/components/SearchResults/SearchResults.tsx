@@ -14,40 +14,68 @@ function SearchResults({ results, clearCallback }: ISearchResultsProps) {
     return null;
   }
 
-  const triggerCardPin = (symbol: string): void => {
-    pinCardToBoard(symbol);
-    clearCallback();
-  };
-
-  const handleKeyDown = (event: React.KeyboardEvent<HTMLButtonElement>) => {
-    if (event.code === "Enter") {
-      triggerCardPin(event.currentTarget.name);
+  const triggerCardPin = (symbol: string | null): void => {
+    if (symbol) {
+      pinCardToBoard(symbol);
+      clearCallback();
     }
   };
 
-  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+  const handleKeyDownList = (event: React.KeyboardEvent<HTMLUListElement>) => {
+    let currentItem = document.querySelector("[aria-selected=true]");
+    if (event.key === 'ArrowUp') {
+      console.log('Arrowup', currentItem);
+      if(currentItem && currentItem.previousElementSibling !== null){
+        const prev = currentItem.previousElementSibling as HTMLElement;
+        currentItem.setAttribute("aria-selected","false");
+        prev.setAttribute("aria-selected", "true");
+        prev.focus();
+      }
+      event.preventDefault();
+    } else if (event.key === 'ArrowDown') {
+      console.log('Arrowdown', currentItem);
+      if(currentItem && currentItem.nextElementSibling !== null){
+        const next = currentItem.nextElementSibling as HTMLElement;
+        currentItem.setAttribute("aria-selected","false");
+        next.setAttribute("aria-selected", "true");
+        next.focus();
+      } else if(!currentItem) {
+        currentItem = document.querySelector("[aria-selected=false]");
+        if (currentItem) {
+          currentItem.setAttribute("aria-selected", "true");
+          (currentItem as HTMLElement).focus();
+        }
+      }
+      event.preventDefault();
+    } else if ((event.code === 'Enter' || event.code === 'Space') && currentItem) {
+      triggerCardPin(currentItem.textContent);
+    }
+  };
+
+  const handleClick = (event: React.MouseEvent<HTMLLIElement>) => {
     event.preventDefault();
 
-    triggerCardPin(event.currentTarget.name);
+    triggerCardPin(event.currentTarget.textContent);
   };
 
   return (
     <div id="results">
-      { results.map((result: string, index: number) => {
-          const name = result.split(';')[0];
-          
+      <ul role="listbox" onKeyDown={ handleKeyDownList } tabIndex={ 0 } aria-label="Search results">
+        { results.map((result: string, index: number) => {          
           return (
-            <button
-              key={ 'result-' + index }
-              className='result-button'
-              onClick={ handleClick }
-              onKeyDown={ handleKeyDown }
-              name={ name }
-            >
-              { result }
-            </button>
+              <li
+                tabIndex={ -1 }
+                role="option"
+                aria-selected="false"
+                key={ 'result-' + index }
+                className='result-item'
+                onClick={ handleClick }
+              >
+                { result }
+              </li>
           );
         }) }
+      </ul>
     </div>
   );
 }

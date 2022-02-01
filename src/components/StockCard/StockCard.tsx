@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useStockContext } from '../../business-logic/StockProvider/StockProvider';
 import { getStockDataForSymbol } from '../../business-logic/ApiServices/ApiStocksStatsService';
 import { ICard, Card } from "../../models/Card";
+import DailyPrices from '../DailyPrices/DailyPrices';
 import './StockCard.css';
 import './glyphicon.css';
 
@@ -16,7 +17,6 @@ function StockCard({ symbol, cardId }: IStockCardProps) {
 
   const modifyCardData = (newCardData: ICard): void => {
     if(typeof setCardData != 'undefined') {
-      console.log('newCardData', newCardData);
       setCardData(newCardData);
     }
   };
@@ -80,6 +80,7 @@ function StockCard({ symbol, cardId }: IStockCardProps) {
             !stockIsUp && !stockIsDown && ( <span>{ cardData.ChangePercent }</span> )
           }
           </p>
+          <DailyPrices symbol={ symbol } />
         </div>
         <div className='stats-row-container'>
           <span className='stats-label'>

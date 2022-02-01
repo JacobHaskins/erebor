@@ -12,7 +12,12 @@
   margin-right: auto;
 }
 
-.result-button {
+#results > ul {
+  margin: 0px;
+  padding: 0px;
+}
+
+.result-item {
   border: 0;
   background-color: inherit;
   cursor: pointer;
@@ -23,7 +28,7 @@
   z-index: 10;
 }
 
-.result-button:focus {
+.result-item:focus {
   background-color: lightslategray;
 }
 
