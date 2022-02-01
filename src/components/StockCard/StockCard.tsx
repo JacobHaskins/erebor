@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useStockContext } from '../../business-logic/StockProvider/StockProvider';
+import { getStockDataForSymbol, IStockCardData, StockStatsData } from '../../business-logic/ApiServices/ApiStocksStatsService';
 import './StockCard.css';
 import './glyphicon.css';
 
@@ -8,30 +9,22 @@ interface IStockCardProps {
   cardId: string;
 }
 
-interface IStockCardData {
-  name: string;
-}
-
-const defaultCardData: IStockCardData = {
-  name: ''
-};
-
 function StockCard({ symbol, cardId }: IStockCardProps) {
   const { resetCardByCardId } = useStockContext();
-  const [ cardData, setCardData ] = useState(defaultCardData);
+  const [ cardData, setCardData ] = useState(new StockStatsData());
 
   const modifyCardData = (newCardData: IStockCardData): void => {
     if(typeof setCardData != 'undefined') {
+      console.log('newCardData', newCardData);
       setCardData(newCardData);
     }
   };
 
   useEffect(() => {
     if (!symbol || !symbol.trim()) {
-      setCardData(defaultCardData);
-    } else {
-      // TODO: restore getStockDataForSymbol(symbol.trim(), modifyCardData);
-      modifyCardData({name: 'The Fellowship of the Ring'});
+      setCardData(new StockStatsData());
+    } else if (cardData.Name.trim().length === 0) {
+      getStockDataForSymbol(symbol.trim(), modifyCardData);
     }
   }, [symbol]);
 
@@ -67,7 +60,7 @@ function StockCard({ symbol, cardId }: IStockCardProps) {
       >
         X
       </button>
-      <h2>{ cardData.name }</h2>
+      <h2>{ cardData.Name }</h2>
       <span className="glyphicon glyphicon-arrow-up"></span>
       <span className="glyphicon glyphicon-arrow-down"></span>
     </section>

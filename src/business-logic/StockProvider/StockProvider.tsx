@@ -9,8 +9,8 @@ interface IStockContext {
 
 const defaultState: IStockContext = {
   boardState: new Board(),
-  pinCardToBoard: (symbol: string) => {console.log(symbol);},
-  resetCardByCardId: (cardId: string) => {console.log(cardId);}
+  pinCardToBoard: (symbol: string) => '',
+  resetCardByCardId: (cardId: string) => ''
 };
 
 export const StockContext = createContext<IStockContext>(defaultState);
