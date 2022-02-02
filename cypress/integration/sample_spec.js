@@ -1,6 +1,8 @@
 describe('Stock Comparison Integration Test', () => {
   it('successfully loads', () => {
-    cy.visit('/')
+    cy
+    .wait(70000) // make the integration test wait for github actions to (slowly) finish compiling the project
+    .visit('/')
   })
 
   it('should render', () => {
