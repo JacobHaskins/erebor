@@ -24,7 +24,6 @@ function SearchResults({ results, clearCallback }: ISearchResultsProps) {
   const handleKeyDownList = (event: React.KeyboardEvent<HTMLUListElement>) => {
     let currentItem = document.querySelector("[aria-selected=true]");
     if (event.key === 'ArrowUp') {
-      console.log('Arrowup', currentItem);
       if(currentItem && currentItem.previousElementSibling !== null){
         const prev = currentItem.previousElementSibling as HTMLElement;
         currentItem.setAttribute("aria-selected","false");
@@ -33,7 +32,6 @@ function SearchResults({ results, clearCallback }: ISearchResultsProps) {
       }
       event.preventDefault();
     } else if (event.key === 'ArrowDown') {
-      console.log('Arrowdown', currentItem);
       if(currentItem && currentItem.nextElementSibling !== null){
         const next = currentItem.nextElementSibling as HTMLElement;
         currentItem.setAttribute("aria-selected","false");

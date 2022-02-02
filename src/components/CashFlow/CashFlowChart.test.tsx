@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import DailyPrices from './DailyPrices';
+import CashFlowChart from './CashFlowChart';
 import { axe, toHaveNoViolations } from "jest-axe";
 
 expect.extend(toHaveNoViolations);
@@ -16,7 +16,7 @@ test('should render the gray hint text', () => {
 //a11y tests
 
 test("should not have any accessibility violations", async () => {
-  const { container } = render(<DailyPrices symbol='' />);
+  const { container } = render(<CashFlowChart symbol='' currency='USD' />);
   const results = await axe(container);
   expect(results).toHaveNoViolations();
 })

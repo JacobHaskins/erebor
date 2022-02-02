@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useStockContext } from '../../business-logic/StockProvider/StockProvider';
 import { getStockDataForSymbol } from '../../business-logic/ApiServices/ApiStocksStatsService';
 import { ICard, Card } from "../../models/Card";
-import DailyPrices from '../DailyPrices/DailyPrices';
+import CashFlowChart from '../CashFlow/CashFlowChart';
 import './StockCard.css';
 import './glyphicon.css';
 
@@ -80,7 +80,9 @@ function StockCard({ symbol, cardId }: IStockCardProps) {
             !stockIsUp && !stockIsDown && ( <span>{ cardData.ChangePercent }</span> )
           }
           </p>
-          <DailyPrices symbol={ symbol } />
+        </div>
+        <div className='stats-row-container'>
+          <CashFlowChart symbol={ symbol } currency={ cardData.Currency } />
         </div>
         <div className='stats-row-container'>
           <span className='stats-label'>

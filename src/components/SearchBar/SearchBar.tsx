@@ -48,6 +48,7 @@ function SearchBar() {
   return (
     <fieldset className="search-fieldset">
       <legend id="search-legend">Search</legend>
+      <p><em>(Warning: API requests are throttled to 5 req. / min. for free accounts.)</em></p>
       <label htmlFor="search-bar">Enter up to 3 stocks to compare the current stock prices.</label><br />
       <input 
         id="search-bar" 
