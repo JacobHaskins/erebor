@@ -10,6 +10,7 @@ A repo for experimentation.
 **[Functions](#functions)**<br>
 **[Prerequisites](#prerequisites)**<br>
 **[Scripts](#scripts)**<br>
+**[Notes](#notes)**<br>
 **[Challenges](#challenges)**<br>
 **[Alternatives](#alternatives)**<br>
 **[Ideas](#ideas)**<br>
@@ -68,6 +69,10 @@ This project was developed on a Windows machine with the following tools install
 - `npm run build` creates a production build of the project
 - `npm test` launches the interactive unit test runner
 - `npm start` runs the app locally in development mode at [http://localhost:3000](http://localhost:3000)
+
+## Notes
+
+On my machine, I needed to lengthen the timeout for Cypress's verification step.  To do this, in node_modules\cypress\lib\tasks\verify.js, I modified VERIFY_TEST_RUNNER_TIMEOUT_M to have a default value of 300000.
 
 ## Challenges
 
