@@ -15,7 +15,6 @@ function CashFlowChart({ symbol, currency }: ICashFlowProps) {
 
   const modifyCashFlow = (newCashFlowData: ICashFlow[]): void => {
     if(typeof setCashFlowData != 'undefined') {
-      console.log('newCashFlowData', newCashFlowData);
       setCashFlowData(newCashFlowData);
     }
   };

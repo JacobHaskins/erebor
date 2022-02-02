@@ -1,17 +1,9 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import StockBoard from './StockBoard';
 import { axe, toHaveNoViolations } from "jest-axe";
 
 expect.extend(toHaveNoViolations);
-
-// unit tests
-
-/* test('should render label text', () => {
-  render(<StockBoard />);
-  const labelElement = screen.getByText(/Enter up to/i);
-  expect(labelElement).toBeInTheDocument();
-}); */
 
 //a11y tests
 
