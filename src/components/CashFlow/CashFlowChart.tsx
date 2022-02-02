@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import * as d3 from 'd3';
 import { getCashFlowForSymbol } from '../../business-logic/ApiServices/ApiCashFlowService';
-import { CashFlow, ICashFlow } from '../../models/CashFlow';
+import { ICashFlow } from '../../models/CashFlow';
 import './CashFlowChart.css';
 
 interface ICashFlowProps {

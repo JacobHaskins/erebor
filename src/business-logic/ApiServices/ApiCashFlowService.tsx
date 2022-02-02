@@ -37,7 +37,6 @@ interface IRawCashFlowData {
 
 const sanitizeCashFlowApiData = (cashFlowData: IRawCashFlowData[]): ICashFlow[] => {
   const results: ICashFlow[] = [];
-  const parseTime = d3.timeParse("%Y-%m-%d");
   // make the data ascend to the most recent data - it is supplied in descending order that starts with the most recent date
   for(let i = cashFlowData.length - 1; i >= 0; i--) {
     let cashFlow = Number(cashFlowData[i].operatingCashflow || '0');
