@@ -99,11 +99,6 @@ function CashFlowChart({ symbol, currency }: ICashFlowProps) {
     <svg ref={ svgRef }></svg>
     </div>
   );
-/*
-  return (
-    <p>chart</p>
-  );
-*/
 }
 
 export default CashFlowChart;

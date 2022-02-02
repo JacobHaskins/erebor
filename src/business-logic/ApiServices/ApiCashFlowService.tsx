@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { CashFlow, ICashFlow } from '../../models/CashFlow';
-import * as d3 from 'd3';
 import ALPHAVANTAGE_API_KEY from '../../settings/prod'; 
 
 interface IRawCashFlowData {
