@@ -23,7 +23,7 @@ In Middle Earth, Erebor is the city under The Lonely Mountain that is filled wit
 
 ## Links
 
-- Github repo: https://git.heroku.com/erebor-experiment.git
+- Github repo: https://github.com/JacobHaskins/erebor
 - CI/CD build status: ![](https://github.com/JacobHaskins/erebor/workflows/erebor-CICD/badge.svg)
 - Prod deploy on Heroku: https://erebor-experiment.herokuapp.com/
 
