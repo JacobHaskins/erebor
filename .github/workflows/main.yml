@@ -40,6 +40,8 @@ jobs:
       with:
         build: npm run build
         start: npm start
+        env:
+          CYPRESS_VERIFY_TIMEOUT: 300000
 
     - name: Add remote origin
       run: |
